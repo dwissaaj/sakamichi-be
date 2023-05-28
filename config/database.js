@@ -3,11 +3,11 @@ module.exports = ({env}) => ({
   connection: {
     client: 'postgres',
     connection: {
-      host: env('DATABASE_HOST', 'localhost'),
+      host: env('DATABASE_HOST', 'db.telptiexcczzexiizuuu.supabase.co'),
       port: env.int('DATABASE_PORT', 5432),
-      database: env('DATABASE_NAME', 'sakamichiDB'),
+      database: env('DATABASE_NAME', 'postgres'),
       user: env('DATABASE_USERNAME', 'postgres'),
-      password: env('DATABASE_PASSWORD', '@Ajisukses18'),
+      password: env('DATABASE_PASSWORD', '@Tsusui806cute'),
       schema: env('DATABASE_SCHEMA', 'public'),
     }
   }
