@@ -50,10 +50,6 @@
       "type": "decimal",
       "required": true
     },
-    "description": {
-      "type": "string",
-      "required": true
-    },
     "mainProfile": {
       "type": "media",
       "multiple": false,
@@ -154,6 +150,10 @@
       "relation": "oneToMany",
       "target": "api::gif-gallery.gif-gallery",
       "mappedBy": "member"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
     }
   }
 }
