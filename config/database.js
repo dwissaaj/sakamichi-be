@@ -1,27 +1,14 @@
-const path = require('path');
-
-module.exports = ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
-
-  const connections = {
-
-    sqlite: {
-      connection: {
-        filename: path.join(
-          __dirname,
-          '..',
-          env('DATABASE_FILENAME', 'data.db')
-        ),
-      },
-      useNullAsDefault: true,
-    },
-  };
-
-  return {
+module.exports = ({env}) => ({
+  defaultConnection: "default",
+  connection: {
+    client: 'postgres',
     connection: {
-      client,
-      ...connections[client],
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
-    },
-  };
-};
+      host: env('DATABASE_HOST', 'localhost'),
+      port: env.int('DATABASE_PORT', 5432),
+      database: env('DATABASE_NAME', 'sakamichiDB'),
+      user: env('DATABASE_USERNAME', 'postgres'),
+      password: env('DATABASE_PASSWORD', '@Ajisukses18'),
+      schema: env('DATABASE_SCHEMA', 'public'),
+    }
+  }
+})
