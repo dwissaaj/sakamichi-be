@@ -16,7 +16,8 @@
     "@strapi/provider-upload-cloudinary": "^4.10.6",
     "@strapi/strapi": "4.10.6",
     "better-sqlite3": "8.0.1",
-    "pg": "^8.11.0"
+    "pg": "^8.11.0",
+    "strapi-plugin-random-sort": "^0.0.3"
   },
   "author": {
     "name": "A Strapi developer"
