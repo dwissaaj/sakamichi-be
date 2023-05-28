@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_content_swiperhomes",
+  "info": {
+    "displayName": "swiperhome",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "swiperImage": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

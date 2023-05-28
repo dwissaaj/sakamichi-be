@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "singles",
+  "info": {
+    "singularName": "single",
+    "pluralName": "singles",
+    "displayName": "single",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "kanji": {
+      "type": "string",
+      "required": true
+    },
+    "launch": {
+      "type": "date",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "main song",
+        "under song",
+        "uknown"
+      ],
+      "required": true
+    },
+    "members": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::member.member",
+      "inversedBy": "singles"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "center": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::member.member"
+    },
+    "relatedSong": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.single"
+    },
+    "otherCover": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "group": {
+      "type": "enumeration",
+      "enum": [
+        "Nogizaka46",
+        "Sakurazaka46",
+        "Hinatazaka46",
+        "Keyakizaka46"
+      ],
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "default": "Sony Music Entertainment Japan",
+      "required": true
+    },
+    "trivia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.trivia"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "tagsSeo": {
+      "type": "string",
+      "required": true
+    },
+    "backcover": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

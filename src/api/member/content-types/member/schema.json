@@ -1,0 +1,159 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "kanji": {
+      "type": "string",
+      "required": true
+    },
+    "katakana": {
+      "type": "string"
+    },
+    "birthdate": {
+      "type": "date",
+      "required": true
+    },
+    "birthplace": {
+      "type": "string",
+      "required": true
+    },
+    "bloodtype": {
+      "type": "enumeration",
+      "enum": [
+        "A",
+        "B",
+        "AB",
+        "O",
+        "Unknown"
+      ],
+      "required": true
+    },
+    "age": {
+      "type": "integer",
+      "required": true
+    },
+    "height": {
+      "type": "decimal",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "mainProfile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "graduate": {
+      "type": "boolean"
+    },
+    "graduateDate": {
+      "type": "date"
+    },
+    "group": {
+      "type": "enumeration",
+      "enum": [
+        "Nogizaka46",
+        "Hinatazaka46",
+        "Sakurazaka46",
+        "Keyakizaka46"
+      ],
+      "required": true
+    },
+    "memberID": {
+      "type": "integer",
+      "required": true
+    },
+    "sosmed": {
+      "type": "component",
+      "repeatable": true,
+      "component": "profile.social-media"
+    },
+    "otherNames": {
+      "type": "component",
+      "repeatable": true,
+      "component": "profile.nickname"
+    },
+    "profileImage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.collection"
+    },
+    "singles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::single.single",
+      "mappedBy": "members"
+    },
+    "debut": {
+      "type": "date",
+      "required": true
+    },
+    "generation": {
+      "type": "integer",
+      "required": true
+    },
+    "lighstickOne": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": true,
+      "customField": "plugin::color-picker.color"
+    },
+    "lightstickTwo": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": true,
+      "customField": "plugin::color-picker.color"
+    },
+    "lgOne": {
+      "type": "string",
+      "required": true
+    },
+    "lgTwo": {
+      "type": "string",
+      "required": true
+    },
+    "galleries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::gallery.gallery",
+      "mappedBy": "members"
+    },
+    "oldProfile": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tagseo": {
+      "type": "string",
+      "required": true
+    },
+    "gif_galleries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gif-gallery.gif-gallery",
+      "mappedBy": "member"
+    }
+  }
+}

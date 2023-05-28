@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_content_singles",
+  "info": {
+    "displayName": "single",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "kanji": {
+      "type": "string"
+    },
+    "members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::member.member"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "type-A",
+        "type-B",
+        "type-C",
+        "type-D",
+        "type-E",
+        "type-F",
+        "type-G"
+      ]
+    }
+  }
+}

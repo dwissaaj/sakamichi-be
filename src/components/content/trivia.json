@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_content_trivias",
+  "info": {
+    "displayName": "trivia"
+  },
+  "options": {},
+  "attributes": {
+    "trivia": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

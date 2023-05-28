@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_profile_nicknames",
+  "info": {
+    "displayName": "nickname"
+  },
+  "options": {},
+  "attributes": {
+    "nicknames": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

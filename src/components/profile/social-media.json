@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_profile_social_medias",
+  "info": {
+    "displayName": "social media"
+  },
+  "options": {},
+  "attributes": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "blog",
+        "showroom",
+        "instagram",
+        "twitter",
+        "official website",
+        "photobook",
+        "youtube",
+        "other"
+      ],
+      "required": true
+    }
+  }
+}

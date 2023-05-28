@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_content_collections",
+  "info": {
+    "displayName": "collection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sourceUrl": {
+      "type": "string",
+      "required": true
+    },
+    "copyright": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30
+    }
+  }
+}
