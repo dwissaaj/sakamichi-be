@@ -107,26 +107,6 @@
       "type": "integer",
       "required": true
     },
-    "lighstickOne": {
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "lightstickTwo": {
-      "type": "customField",
-      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": true,
-      "customField": "plugin::color-picker.color"
-    },
-    "lgOne": {
-      "type": "string",
-      "required": true
-    },
-    "lgTwo": {
-      "type": "string",
-      "required": true
-    },
     "galleries": {
       "type": "relation",
       "relation": "manyToMany",
@@ -154,6 +134,18 @@
     "description": {
       "type": "richtext",
       "required": true
+    },
+    "penlight1": {
+      "type": "string"
+    },
+    "penlight2": {
+      "type": "string"
+    },
+    "penColor1": {
+      "type": "string"
+    },
+    "penColor2": {
+      "type": "string"
     }
   }
 }
