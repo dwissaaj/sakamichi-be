@@ -88,11 +88,6 @@
       "repeatable": true,
       "component": "profile.nickname"
     },
-    "profileImage": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.collection"
-    },
     "singles": {
       "type": "relation",
       "relation": "manyToMany",
@@ -135,10 +130,10 @@
       "type": "richtext",
       "required": true
     },
-    "penlight1": {
+    "penlightCssColor1": {
       "type": "string"
     },
-    "penlight2": {
+    "penlightCssColor2": {
       "type": "string"
     },
     "penColor1": {
