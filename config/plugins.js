@@ -10,6 +10,8 @@ module.exports = ({ env }) => ({
         params: {
           Bucket: env('AWS_BUCKET'),
         },
+        sizeLimit: 5 * 1024 * 1024,
+        localServer: {}
       },
       actionOptions: {
         upload: {},
