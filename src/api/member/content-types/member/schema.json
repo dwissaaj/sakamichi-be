@@ -102,12 +102,6 @@
       "type": "integer",
       "required": true
     },
-    "galleries": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::gallery.gallery",
-      "mappedBy": "members"
-    },
     "oldProfile": {
       "type": "media",
       "multiple": true,
@@ -141,6 +135,12 @@
     },
     "penColor2": {
       "type": "string"
+    },
+    "galleries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gallery.gallery",
+      "mappedBy": "member"
     }
   }
 }

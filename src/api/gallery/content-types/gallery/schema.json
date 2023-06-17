@@ -12,17 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "collection": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.collection",
-      "required": false
-    },
-    "members": {
+    "member": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::member.member",
       "inversedBy": "galleries"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.collection"
     }
   }
 }
