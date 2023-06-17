@@ -18,7 +18,7 @@
       "target": "api::member.member",
       "inversedBy": "galleries"
     },
-    "image": {
+    "collection": {
       "type": "component",
       "repeatable": true,
       "component": "content.collection"
