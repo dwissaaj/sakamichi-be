@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "galleries",
+  "collectionName": "posts",
   "info": {
-    "singularName": "gallery",
-    "pluralName": "galleries",
+    "singularName": "post",
+    "pluralName": "posts",
     "displayName": "post",
     "description": ""
   },
@@ -16,7 +16,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::member.member",
-      "inversedBy": "galleries"
+      "inversedBy": "posts"
     },
     "collection": {
       "type": "component",

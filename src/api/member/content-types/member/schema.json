@@ -136,10 +136,10 @@
     "penColor2": {
       "type": "string"
     },
-    "galleries": {
+    "posts": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::gallery.gallery",
+      "target": "api::post.post",
       "mappedBy": "member"
     }
   }
