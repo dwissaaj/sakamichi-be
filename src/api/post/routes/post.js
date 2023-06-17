@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * gallery router
+ * post router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::gallery.gallery');
+module.exports = createCoreRouter('api::post.post');
