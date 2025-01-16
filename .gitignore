@@ -41,3 +41,13 @@ wrangler.toml
 scheme.prisma
 .prisma
 *.prisma
+
+# static
+/assets
+/migrations
+
+
+# scratch
+.txt
+*.txt
+scratch.txt
