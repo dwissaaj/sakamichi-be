@@ -1,0 +1,42 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"] // change from default
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Single {
+  id  String @id @default(uuid())
+  name String @unique
+  number Int
+  releaseDate DateTime @default(now())
+  composer String
+  writer String
+  position String
+  totalSales Int
+  lyrics String
+  isPublished Boolean
+  publishedDate DateTime @default(now())
+  coverImage Cover[]
+  trivia Trivia[]
+}
+
+model Cover {
+   id  Int @id @default(autoincrement())
+   track Single @relation(fields: [mainTrack], references: [name])
+   mainTrack String
+   name String
+   url String
+   uploadedAt DateTime @default(now())
+}
+
+model Trivia {
+  id  Int @id @default(autoincrement()) 
+  fact String
+  track Single @relation(fields: [single], references: [name])
+  single String
+}

@@ -38,13 +38,8 @@ wrangler.toml
 .toml
 *.toml
 
-# prisma
-scheme.prisma
-.prisma
-*.prisma
 
 # static
-/assets
 /migrations
 
 
