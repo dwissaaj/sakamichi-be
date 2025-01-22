@@ -8,9 +8,8 @@ type Bindings = {
 };
 
 const image = new Hono<{ Bindings: Bindings }>();
-image.use("*", requestId());
+image.use("*", requestId({ limitLength: 25 }));
 image.get("/:key", async (c) => {
-
   const key = c.req.param("key");
 
   try {
@@ -29,9 +28,8 @@ image.get("/:key", async (c) => {
     throw new HTTPException(401, { message: "something wrong" });
   }
 });
-image.put("/upload", async (c) => {
+image.put("/upload", async (c: Context) => {
   const uuid = c.get("requestId");
-
   const value = await c.req.arrayBuffer();
   const contentType = c.req.header("Content-Type");
 
@@ -46,11 +44,10 @@ image.put("/upload", async (c) => {
     });
   }
   try {
-    const baseUrl = "http://localhost:8787/api/single/image/"
+    const baseUrl = "http://localhost:8787/api/single/image/";
     const url = uuid + "." + format;
-    console.log(url)
+    console.log(url);
     await c.env.KV_MY.put(url, value);
-
     return c.text(`${baseUrl}${url}`);
   } catch (error) {
     throw new HTTPException(401, { message: `Error ${error}` });
@@ -58,6 +55,5 @@ image.put("/upload", async (c) => {
 });
 
 export default image;
-
 
 /// a note bun process not working, it need another way if this not possible via kv
