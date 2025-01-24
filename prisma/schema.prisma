@@ -12,17 +12,18 @@ datasource db {
 model Single {
   id  String @id @default(uuid())
   name String @unique
-  number Int
-  releaseDate DateTime @default(now())
+  numberSingle Int
+  releaseDate DateTime
   composer String
   writer String
-  position String
   totalSales Int
-  lyrics String
   isPublished Boolean
-  publishedDate DateTime @default(now())
+  publishedDate DateTime
+  updateAt DateTime @default(now())
   coverImage Cover[]
   trivia Trivia[]
+  position Position[]
+  lyrics Lyrics[]
 }
 
 model Cover {
@@ -31,7 +32,8 @@ model Cover {
    mainTrack String
    name String
    url String
-   uploadedAt DateTime @default(now())
+  publishedDate DateTime
+   updateAt DateTime @default(now())
 }
 
 model Trivia {
@@ -39,4 +41,25 @@ model Trivia {
   fact String
   track Single @relation(fields: [single], references: [name])
   single String
+  publishedDate DateTime
+  updateAt DateTime @default(now())
+}
+
+model Position {
+  id Int @id @default(autoincrement()) 
+  track Single @relation(fields: [single], references: [name])
+  single String
+  name String
+  placement String
+  publishedDate DateTime
+  updateAt DateTime @default(now())
+}
+
+model Lyrics {
+  id Int @id @default(autoincrement()) 
+  track Single @relation(fields: [single], references: [name])
+  single String
+  japanLyrics String?
+  englishLyrics String?
+  
 }

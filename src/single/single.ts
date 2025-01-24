@@ -2,9 +2,7 @@ import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import prismaClients from "../../lib/prisma";
 import image from "./image/image";
-import {
-  PrismaClientKnownRequestError,
-} from "@prisma/client/runtime/library";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 const single = new Hono();
 
 single.get("/all", async (c) => {
@@ -51,9 +49,8 @@ single.post("/upload", async (c) => {
     const single = await prisma.single.create({
       data: data,
     });
-    return c.json( {single} );
+    return c.json({ single });
   } catch (error) {
-    
     const e = error as PrismaClientKnownRequestError;
     if (e.code === "P2002") {
       console.error(`Error:S103 at ${method} ${path}`, error);
@@ -83,7 +80,6 @@ single.delete("/remove/:id", async (c) => {
 
     return c.text("Good! Data is Removed");
   } catch (error) {
-    
     const e = error as PrismaClientKnownRequestError;
     if (e.code === "P2025") {
       console.error(`Error:S104 at ${method} ${path}`, error);
@@ -95,7 +91,7 @@ single.delete("/remove/:id", async (c) => {
     console.error(`Error:S101 at ${method} ${path}`, error);
     throw new HTTPException(400, {
       message: `${e.message}`,
-      cause: `${e.cause}`
+      cause: `${e.cause}`,
     });
   }
 });
@@ -116,7 +112,7 @@ single.patch("/update/:id", async (c) => {
     return c.json({ single });
   } catch (error) {
     const e = error as PrismaClientKnownRequestError;
-    
+
     if (e.code === "P2025") {
       console.error(`Error:S102 at ${method} ${path}`, error);
       throw new HTTPException(400, {
