@@ -10,7 +10,7 @@ datasource db {
 
 
 model Single {
-  id  String @id @default(uuid())
+  id  Int @id @default(autoincrement())
   name String @unique
   numberSingle Int
   releaseDate DateTime
@@ -18,12 +18,14 @@ model Single {
   writer String
   totalSales Int
   isPublished Boolean
-  publishedDate DateTime
-  updateAt DateTime @default(now())
+  publishedDate DateTime @default(now())
+  updateAt DateTime @updatedAt
   coverImage Cover[]
   trivia Trivia[]
   position Position[]
   lyrics Lyrics[]
+  member Member[]
+  group Group @relation(fields: [id], references: [id])
 }
 
 model Cover {
@@ -32,8 +34,8 @@ model Cover {
    mainTrack String
    name String
    url String
-  publishedDate DateTime
-   updateAt DateTime @default(now())
+  publishedDate DateTime @default(now())
+   updateAt DateTime @updatedAt
 }
 
 model Trivia {
@@ -41,8 +43,8 @@ model Trivia {
   fact String
   track Single @relation(fields: [single], references: [name])
   single String
-  publishedDate DateTime
-  updateAt DateTime @default(now())
+  publishedDate DateTime @default(now())
+  updateAt DateTime @updatedAt
 }
 
 model Position {
@@ -51,8 +53,8 @@ model Position {
   single String
   name String
   placement String
-  publishedDate DateTime
-  updateAt DateTime @default(now())
+  publishedDate DateTime @default(now())
+  updateAt DateTime @updatedAt
 }
 
 model Lyrics {
@@ -61,5 +63,88 @@ model Lyrics {
   single String
   japanLyrics String?
   englishLyrics String?
-  
+    publishedDate DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
+
+model Member {
+  id Int @id @default(autoincrement()) 
+  name String
+  birthdate DateTime
+  penlightOne String
+  penlightTwo String
+  nickname String
+  avatar String
+  activeYears Int
+  graduate Boolean
+  bloodType String?
+  agency String?
+  publishedDate DateTime @default(now())
+  updateAt DateTime @updatedAt
+  single Single[]
+  social SocialMedia?
+  funfact Funfact[] 
+  gallery Gallery?
+  groupName String
+  group Group @relation(fields: [id], references: [id])
+}
+
+model SocialMedia {
+  id Int @id @default(autoincrement()) 
+  twitter String?
+  instagram String?
+  website String?
+  showroom String?
+  blog String?
+  other String?
+  publishedDate DateTime @default(now())
+  updateAt DateTime @updatedAt
+  member Member @relation(fields: [id], references: [id])
+}
+
+model Funfact {
+  id Int @id @default(autoincrement()) 
+  funfact String
+  varietyShow String
+  member Member @relation(fields: [memberId], references: [id])
+  uploadedAt DateTime @default(now())
+  revisedAt DateTime @updatedAt
+  memberId Int
+}
+
+model Gallery {
+  id Int @id @default(autoincrement())
+  member Member @relation(fields: [id], references: [id])
+  name String
+  url String
+  single String?
+  date DateTime
+  uploadedAt DateTime @default(now())
+}
+
+model Group {
+  id Int @id @default(autoincrement())
+  name String
+  katakana String
+  kanji String
+  established DateTime
+  introduction String
+  website String
+  instagram String
+  twitter String
+  otherUrl String
+  tiktok String
+  single Single[]
+  member Member[]
+  gallery GalleryGroup?
+}
+
+model GalleryGroup {
+  id Int @id @default(autoincrement())
+  group Group @relation(fields: [id], references: [id])
+  name String
+  url String
+  single String?
+  date DateTime
+  uploadedAt DateTime @default(now())
 }
