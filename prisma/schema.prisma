@@ -34,7 +34,7 @@ model Cover {
    mainTrack String
    name String
    url String
-  publishedDate DateTime @default(now())
+   publishedDate DateTime @default(now())
    updateAt DateTime @updatedAt
 }
 
@@ -52,7 +52,7 @@ model Position {
   track Single @relation(fields: [single], references: [name])
   single String
   name String
-  placement String
+  placement String?
   publishedDate DateTime @default(now())
   updateAt DateTime @updatedAt
 }
@@ -63,7 +63,7 @@ model Lyrics {
   single String
   japanLyrics String?
   englishLyrics String?
-    publishedDate DateTime @default(now())
+  publishedDate DateTime @default(now())
   updateAt DateTime @updatedAt
 }
 
@@ -85,7 +85,7 @@ model Member {
   social SocialMedia?
   funfact Funfact[] 
   gallery Gallery?
-  groupName String
+  groupName GroupName @default(OTHER)
   group Group @relation(fields: [id], references: [id])
 }
 
@@ -124,7 +124,7 @@ model Gallery {
 
 model Group {
   id Int @id @default(autoincrement())
-  name String
+  name GroupName @default(OTHER)
   katakana String
   kanji String
   established DateTime
@@ -147,4 +147,11 @@ model GalleryGroup {
   single String?
   date DateTime
   uploadedAt DateTime @default(now())
+}
+
+enum GroupName {
+  SAKURAZAKA46
+  HINATAZAKA46
+  NOGIZAKA46
+  OTHER
 }
