@@ -47,3 +47,9 @@ wrangler.toml
 .txt
 *.txt
 scratch.txt
+
+# drizzle
+drizzle.config.ts
+drizzle.*.ts
+drizzle-dev.config.ts
+drizzle-prod.config.ts

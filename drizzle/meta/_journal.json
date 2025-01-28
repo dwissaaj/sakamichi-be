@@ -1,1 +1,27 @@
-{"version":"7","dialect":"sqlite","entries":[]}
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1738070085758,
+      "tag": "0000_seed-users",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1738070153462,
+      "tag": "0001_seed-singles",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1738070519378,
+      "tag": "0002_seed-singles",
+      "breakpoints": true
+    }
+  ]
+}
