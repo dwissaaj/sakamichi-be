@@ -5,13 +5,12 @@
     "deploy": "wrangler deploy --minify"
   },
   "dependencies": {
-    "@prisma/adapter-d1": "^6.2.1",
-    "@prisma/client": "^6.2.1",
-    "hono": "^4.6.16",
-    "prisma": "^6.2.1"
+    "drizzle-orm": "^0.39.0",
+    "hono": "^4.6.16"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
+    "drizzle-kit": "^0.30.3",
     "prettier": "^3.4.2",
     "wrangler": "^3.103.2"
   }
